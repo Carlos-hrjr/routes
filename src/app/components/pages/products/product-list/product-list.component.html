@@ -1,0 +1,35 @@
+<app-loading [data]='products'></app-loading>
+
+<table class='uk-table uk-table-divider uk-table-hover uk-table-striped' *ngIf='products?.length > 0'>
+  <thead>
+    <tr>
+      <th class='text-center'>#</th>
+      <th class='text-center'>Título</th>
+      <th class='text-center'>Preço</th>
+      <th class='text-center'>Descrição</th>
+      <th class='text-center'>Quantidade</th>
+      <th class='text-center'>Preço</th>
+      <th class='text-center'></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let item of products' [ngClass]="{'selected': item.id == product?.id}">
+      <td>{{item.id.substring(0,8)}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.price | currency}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.price}}</td>
+      <td>
+        <button class='uk-button uk-button-default' *ngIf="item.id != products?.id && isInRole()"
+          (click)='select(item)'>
+          SELECIONAR
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<app-product-editor *ngIf='product' [product]='product'></app-product-editor>

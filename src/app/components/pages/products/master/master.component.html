@@ -1,0 +1,22 @@
+<nav class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-left">
+    <ul class="uk-navbar-nav">
+      <li>
+        <a href="#">Produtos</a>
+        <div class="uk-navbar-dropdown">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li><a routerLink="/">Lista</a></li>
+            <li><a routerLink="/create">Criar</a></li>
+            <li><a routerLink="/delete">Excluir</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="" (click)="logout()">LOGOUT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="uk-padding">
+  <router-outlet></router-outlet>
+</div>
